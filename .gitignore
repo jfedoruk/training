@@ -1,0 +1,7 @@
+reactJS/github-battle/node_modules
+
+.mongo/
+
+.meteor/local
+
+node_modules/ 
