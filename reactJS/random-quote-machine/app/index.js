@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 require('font-awesome/css/font-awesome.css');
+require('./styles/style.css');
 
 var divStyle = {
   //margin: "20px"
