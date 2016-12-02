@@ -5,7 +5,6 @@ require('font-awesome/css/font-awesome.css');
 require('./styles/style.css');
 
 var divStyle = {
-  //margin: "20px"
   padding: "5%"
 };
 
@@ -37,7 +36,7 @@ function QuoteForm(props) {
               </p>
           </div>
           <div className="row col-xs-offset-9">
-            <em>- {props.author}</em>
+            <em>{props.author}</em>
           </div>
         </ReactCSSTransitionGroup>
         <div className="row"><p></p></div>
@@ -71,15 +70,15 @@ var Quote = React.createClass({
   getInitialState: function () {
     return {
       quote: "Women might be able to fake orgasms. But men can fake a whole relationship.",
-      author: "Sharon Stone"
+      author: "- Sharon Stone"
     }
   },
   tweetQuote: function(e) {
     e.preventDefault();
     var url = "https://twitter.com/intent/tweet?text="
-              + "\"" + this.state.quote + "\""
-              + "%20by%20"
-              + this.state.author;
+            + encodeURIComponent("\"" + this.state.quote + "\""
+                                   + " by "
+                                   + this.state.author);
     window.open(url);
     // Linking.canOpenURL(url).then(supported => {
     //   if (!supported) {
