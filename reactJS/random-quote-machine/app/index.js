@@ -86,11 +86,6 @@ var Quote = React.createClass({
     var quoteLocal = this.state.quote;
     var authorLocal = this.state.author;
 
-    this.setState({
-      quote: "",
-      author: ""
-    });
-
     fetch('https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous', {
       method: 'POST',
       headers: {

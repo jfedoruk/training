@@ -4,7 +4,7 @@
 
 .quote-appear.quote-appear-active {
   opacity: 1;
-  transition: opacity .7s ease-in;
+  transition: opacity 0.8s ease-in;
 }
 
 .quote-enter {
@@ -13,14 +13,15 @@
 
 .quote-enter.quote-enter-active {
   opacity: 1;
-  transition: opacity 800ms ease-in;
+  transition: opacity 0.8s ease-in;
 }
 
 .quote-leave {
   opacity: 1;
+  transition: opacity 300ms ease-out;
 }
 
 .quote-leave.quote-leave-active {
   opacity: 0.01;
-  transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-out;
 }
