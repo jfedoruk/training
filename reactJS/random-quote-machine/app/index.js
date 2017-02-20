@@ -39,7 +39,6 @@ function QuoteForm(props) {
           <div className="row col-xs-offset-9">
             <em>- {props.author}</em>
           </div>
-        </ReactCSSTransitionGroup>
         <div className="row"><p></p></div>
         <div className="row">
               <div className="row col-xs-3">
@@ -63,6 +62,7 @@ function QuoteForm(props) {
                 </button>
               </div>
         </div>
+        </ReactCSSTransitionGroup>
       </div>
     )
 };
@@ -81,14 +81,6 @@ var Quote = React.createClass({
               + "%20by%20"
               + this.state.author;
     window.open(url);
-    // Linking.canOpenURL(url).then(supported => {
-    //   if (!supported) {
-    //     console.log('Can\'t handle url: ' + url);
-    //   } else {
-    //     return Linking.openURL(url);
-    //   }
-    // }).catch(err => console.error('An error occurred', err));
-
   },
   getQuote: function(e) {
     e.preventDefault();
@@ -99,8 +91,6 @@ var Quote = React.createClass({
       quote: "",
       author: ""
     });
-
-    console.log("current quote:" + quoteLocal + "\nand author: " + authorLocal);
 
     fetch('https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous', {
       method: 'POST',
@@ -114,7 +104,6 @@ var Quote = React.createClass({
         else throw new Error('Something went wrong on api server!');
     })
     .then(response => {
-      console.log(response);
       this.setState({
         quote: response.quote,
         author: response.author
@@ -141,7 +130,6 @@ var Main = React.createClass({
     )
   }
 });
-
 
 
 ReactDOM.render(
