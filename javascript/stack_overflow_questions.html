@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test</title>
+</head>
+<body>
+<input type="text" name="" disabled="true" id="inputField">
+    <button id="btn5" value="5">5</button>
+    <button id="btn2" value="2">2</button>
+    <button id="operator" value="+">+</button>
+    <button id="eval2">=</button>
+    </body>
+
+    <script type="text/javascript">
+var btn5 = document.getElementById('btn5');
+var btn2 = document.getElementById('btn2');
+var inpField = document.getElementById('inputField');
+var operator = document.getElementById('operator');
+var eval2 = document.getElementById('eval2');
+
+btn5.addEventListener('click', btn5Function);
+btn2.addEventListener('click', btn2Function);
+operator.addEventListener('click', operatorFunction);
+eval2.addEventListener('click', evalFunction)
+//inpField.value = "";
+
+function btn5Function() {
+
+    inpField.value += btn5.value;
+    console.log(inpField.value);
+}
+
+function btn2Function() {
+
+    inpField.value += btn2.value;
+    console.log(inpField.value);
+}
+
+function operatorFunction() {
+
+    inpField.value += operator.value + '';
+    console.log(inpField.value);
+}
+
+function evalFunction() {
+    var bla = eval(inpField.value);
+    console.log(bla);
+    console.log(inpField.value);
+    var storeVal = parseInt(inpField.value);
+    console.log(storeVal);
+    var cal = eval(storeVal);
+    inpField.value = cal;
+}
+
+</script>
+
+</html>
