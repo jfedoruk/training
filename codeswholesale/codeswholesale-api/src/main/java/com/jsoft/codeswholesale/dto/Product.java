@@ -8,4 +8,6 @@ import java.util.List;
 public class Product {
     String identifier;
     List<String> languages;
+    String name;
+    String productId;
 }

@@ -14,9 +14,11 @@ import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResour
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Configuration
 @EnableAutoConfiguration
@@ -42,9 +44,10 @@ public class Oauth2Client {
     private OAuth2RestOperations restTemplate;
 
     @RequestMapping("/products")
-    public List<Product> home() {
+    public @ResponseBody List<Product> home() {
         @SuppressWarnings("unchecked")
         List<Product> result = restTemplate.getForObject(baseUrl + "/v2/products", Products.class).getProducts();
+        result = result.stream().filter(product -> product.getName().contains("Windows")).collect(Collectors.toList());
         return result;
     }
 
