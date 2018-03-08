@@ -10,4 +10,7 @@ public class Product {
     List<String> languages;
     String name;
     String productId;
+    List<Price> prices;
+    Integer quantity;
+    List<Image> images;
 }
